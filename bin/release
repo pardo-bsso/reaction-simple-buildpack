@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+#
+# Heroku buildpack for Reaction Commerce
+#
+
+
+cat <<EOF
+addons:
+  - mongolab
+default_process_types:
+  web: PATH=.meteor/heroku_build/bin:$PATH .meteor/heroku_build/bin/node .meteor/heroku_build/bin/boot_proxy.js .meteor/heroku_build/bin/node node_modules/.bin/reaction run
+EOF
